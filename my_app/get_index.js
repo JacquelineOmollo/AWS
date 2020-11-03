@@ -15,11 +15,12 @@ exports.handler = function (event, context, callback) {
            
        }
    }
-   documentClient.get(params, (err, data) => {
-       if (err) {
-            console.log(err);
-         }
-         console.log(data);
-   })
+   try {
+        const data = documentClient.get(params).promise();
+        console.log(data);
 
+   }catch (err) {
+    console.log(err)
+   }
+  
 }
