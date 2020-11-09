@@ -1,8 +1,9 @@
 import React, {useState, Fragment} from 'react'
-import CRUD from './CRUD'
 import Table from  "./Table"
+import EditUser from "./EditUser"
+import Form from "./Form"
 
-export const Data = (propss) => {
+export const Data = () => {
     // placement data
     const data = [
         {id: 1, name: "Jackie", username: "jackbird" },
@@ -14,15 +15,63 @@ export const Data = (propss) => {
     const initialState = {id: null, name: "", username: ""}
 
     // Setting state
-    const [users, setUser] = useState(user)
-    const [urrentUsers, setCurrentUser] = useState(initialState)
+    const [users, setUsers] = useState(data)
+    const [currentUser, setCurrentUser] = useState(initialState)
     const [editing, setEditing] = useState(false)
+
+     //Crud operations
+     const addUser = user => {
+		user.id = users.length + 1
+		setUsers([ ...users, user ])
+	}
+
+	const deleteUser = id => {
+		setEditing(false)
+
+		setUsers(users.filter(user => user.id !== id))
+	}
+
+	const updateUser = (id, updatedUser) => {
+		setEditing(false)
+
+		setUsers(users.map(user => (user.id === id ? updatedUser : user)))
+	}
+
+	const editRow = user => {
+		setEditing(true)
+
+		setCurrentUser({ id: user.id, name: user.name, username: user.username })
+	}
+
 
 
     return (
-        <>
-        <CRUD/>
-        <Table/>
-        </>
+        <div>
+        <h1>CRUD App with Hooks</h1>
+        <div className="flex-row">
+            <div className="flex-large">
+                {editing ? (
+                    <Fragment>
+                        <h2>Edit user</h2>
+                        <EditUser
+                            editing={editing}
+                            setEditing={setEditing}
+                            currentUser={currentUser}
+                            updateUser={updateUser}
+                        />
+                    </Fragment>
+                ) : (
+                    <Fragment>
+                        <h2>Add user</h2>
+                        <Form addUser={addUser} />
+                    </Fragment>
+                )}
+            </div>
+            <div className="flex-large">
+                <h2>View users</h2>
+                <Table users={users} editRow={editRow} deleteUser={deleteUser} />
+            </div>
+        </div>
+    </div>
     )
 }

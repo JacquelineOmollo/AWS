@@ -1,6 +1,6 @@
-import React , {useSate} from 'react'
+import React, {useState} from 'react'
 
-const Form = () => {
+const Form = (props) => {
    
         const initialFormState = { id: null, name: '', username: '' }
         const [ user, setUser ] = useState(initialFormState)
