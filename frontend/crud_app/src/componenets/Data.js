@@ -47,7 +47,7 @@ export const Data = () => {
 
     return (
         <div>
-        <h1>CRUD App with Hooks</h1>
+        <h1>Users</h1>
         <div className="flex-row">
             <div className="flex-large">
                 {editing ? (
