@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Button} from  'bootstrap-4-react'
 
 const Form = (props) => {
    
@@ -21,11 +22,13 @@ const Form = (props) => {
 				setUser(initialFormState)
 			}}
 		>
+	
 			<label>Name</label>
 			<input type="text" name="name" value={user.name} onChange={handleInputChange} />
 			<label>Username</label>
 			<input type="text" name="username" value={user.username} onChange={handleInputChange} />
-			<button>Add new user</button>
+			<Button>Add new user</Button>
+		
 		</form>
     )
 }

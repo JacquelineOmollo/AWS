@@ -1,7 +1,9 @@
 import React from 'react'
+import { Form, Button} from 'bootstrap-4-react';
 
 const Table = (props) => {
     return (
+      <Form>
         <table>
         <thead>
           <tr>
@@ -17,20 +19,20 @@ const Table = (props) => {
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>
-                  <button
+                  <Button
                     onClick={() => {
                       props.editRow(user)
                     }}
                     className="button muted-button"
                   >
                     Edit
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => props.deleteUser(user.id)}
                     className="button muted-button"
                   >
                     Delete
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))
@@ -41,6 +43,7 @@ const Table = (props) => {
           )}
         </tbody>
       </table>
+      </Form>
     )
 }
 

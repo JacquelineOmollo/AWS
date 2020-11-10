@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Form, Button} from 'bootstrap-4-react';
 
 const EditUser = (props) => {
     const [user, setUser] = useState(props.currentUser)
@@ -18,7 +19,7 @@ const EditUser = (props) => {
       }
     
     return (
-        <form
+        <Form
       onSubmit={event => {
         event.preventDefault()
 
@@ -29,11 +30,11 @@ const EditUser = (props) => {
       <input type="text" name="name" value={user.name} onChange={handleInputChange} />
       <label>Username</label>
       <input type="text" name="username" value={user.username} onChange={handleInputChange} />
-      <button>Update user</button>
-      <button onClick={() => props.setEditing(false)} className="button muted-button">
+      <Button>Update user</Button>
+      <Button onClick={() => props.setEditing(false)} className="button muted-button">
         Cancel
-      </button>
-    </form>
+      </Button>
+    </Form>
     )
 }
 

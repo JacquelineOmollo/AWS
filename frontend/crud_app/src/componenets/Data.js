@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState} from 'react'
 import Table from  "./Table"
 import EditUser from "./EditUser"
 import Form from "./Form"
@@ -51,7 +51,7 @@ export const Data = () => {
         <div className="flex-row">
             <div className="flex-large">
                 {editing ? (
-                    <Fragment>
+                    <>
                         <h2>Edit user</h2>
                         <EditUser
                             editing={editing}
@@ -59,12 +59,12 @@ export const Data = () => {
                             currentUser={currentUser}
                             updateUser={updateUser}
                         />
-                    </Fragment>
+                    </>
                 ) : (
-                    <Fragment>
+                    <>
                         <h2>Add user</h2>
                         <Form addUser={addUser} />
-                    </Fragment>
+                    </>
                 )}
             </div>
             <div className="flex-large">
