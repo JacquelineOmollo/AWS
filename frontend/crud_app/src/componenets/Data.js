@@ -6,13 +6,13 @@ import Form from "./Form"
 export const Data = () => {
     // placement data
     const data = [
-        {id: 1, name: "Jackie", username: "jackbird" },
-        {id: 2, name: "Mary", username: "maryloo" },
-        {id: 3, name: "Hunter", username: "huntergreen" }
+        {id: 1, name: "Jackie", username: "jackbird", occupation: "Software"},
+        {id: 2, name: "Mary", username: "maryloo",  occupation: "Teacher"},
+        {id: 3, name: "Hunter", username: "huntergreen", occupation: "Docter" }
     ]
 
     // the initial state of dat
-    const initialState = {id: null, name: "", username: ""}
+    const initialState = {id: null, name: "", username: "", occupation: ""}
 
     // Setting state
     const [users, setUsers] = useState(data)
@@ -40,7 +40,7 @@ export const Data = () => {
 	const editRow = user => {
 		setEditing(true)
 
-		setCurrentUser({ id: user.id, name: user.name, username: user.username })
+		setCurrentUser({ id: user.id, name: user.name, username: user.username, occupation: user.occupation})
 	}
 
 

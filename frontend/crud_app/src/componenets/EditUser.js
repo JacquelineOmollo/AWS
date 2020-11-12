@@ -30,6 +30,8 @@ const EditUser = (props) => {
       <input type="text" name="name" value={user.name} onChange={handleInputChange} />
       <label>Username</label>
       <input type="text" name="username" value={user.username} onChange={handleInputChange} />
+      <label>Occupation</label>
+      <input type="text" name="occupation" value={user.occupation} onChange={handleInputChange} />
       <Button>Update user</Button>
       <Button onClick={() => props.setEditing(false)} className="button muted-button">
         Cancel
